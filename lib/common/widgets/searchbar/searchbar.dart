@@ -10,13 +10,16 @@ class Searchbar extends StatelessWidget {
   final String? text;
   final bool showbackgourndcolor, showborder;
   final VoidCallback? onTap;
-  const Searchbar(
-      {super.key,
-      this.icon,
-      this.text,
-      this.showbackgourndcolor = true,
-      this.showborder = true,
-      this.onTap});
+  final EdgeInsetsGeometry padding;
+  const Searchbar({
+    super.key,
+    this.icon,
+    this.text,
+    this.showbackgourndcolor = true,
+    this.showborder = true,
+    this.onTap,
+    this.padding = const EdgeInsets.symmetric(horizontal: Tsizes.defaultspace),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class Searchbar extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Tsizes.defaultspace),
+        padding: padding,
         child: Container(
           width: TdeviceUtils.getScreenwidth(context),
           padding: const EdgeInsets.all(Tsizes.md),
@@ -55,6 +58,7 @@ class Searchbar extends StatelessWidget {
 }
 
 // section heading
+// ignore: camel_case_types
 class sectionheading extends StatelessWidget {
   final Color? textcolor;
   final bool showActionButton;

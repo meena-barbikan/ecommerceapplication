@@ -1,7 +1,9 @@
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/color.dart';
+import '../../../utils/constants/enums.dart';
 import '../../../utils/constants/size.dart';
 
 class Tverticaltext extends StatelessWidget {
@@ -14,7 +16,7 @@ class Tverticaltext extends StatelessWidget {
       required this.image,
       required this.title,
       required this.textcolor,
-      this.backgroundColor = Tcolors.white,
+      this.backgroundColor,
       this.onTap});
 
   @override
@@ -139,6 +141,7 @@ class Tsectionheading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
@@ -151,6 +154,85 @@ class Tsectionheading extends StatelessWidget {
         ),
         if (showActionButton)
           TextButton(onPressed: onpressed, child: Text(buttonTitle))
+      ],
+    );
+  }
+}
+
+class TBrandtitle extends StatelessWidget {
+  final String text;
+  final int maxline;
+  final TextAlign? textAlign;
+  final Color? textcolor;
+  final TextSizes brandTextsizes;
+
+  const TBrandtitle(
+      {super.key,
+      required this.text,
+      this.maxline = 1,
+      this.textcolor,
+      this.brandTextsizes = TextSizes.small,
+      this.textAlign = TextAlign.center});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        textAlign: textAlign,
+        overflow: TextOverflow.ellipsis,
+        maxLines: maxline,
+        style: brandTextsizes == TextSizes.small
+            ? Theme.of(context).textTheme.labelMedium!.apply(color: textcolor)
+            : brandTextsizes == TextSizes.medium
+                ? Theme.of(context).textTheme.bodyLarge!.apply(color: textcolor)
+                : brandTextsizes == TextSizes.large
+                    ? Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .apply(color: textcolor)
+                    : Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: textcolor));
+  }
+}
+
+class TBrandtitlewithVerfication extends StatelessWidget {
+  final Color? textcolor, iconcolor;
+  final TextAlign? textAlign;
+  final TextSizes brandTextsizes;
+  final int maxlines;
+  final String title;
+  const TBrandtitlewithVerfication({
+    super.key,
+    this.textcolor,
+    this.iconcolor = Tcolors.primaryColor,
+    this.textAlign = TextAlign.center,
+    this.brandTextsizes = TextSizes.small,
+    this.maxlines = 1,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Flexible(
+            child: TBrandtitle(
+          text: title,
+          textcolor: textcolor,
+          maxline: maxlines,
+          textAlign: textAlign,
+          brandTextsizes: brandTextsizes,
+        )),
+        const SizedBox(
+          width: Tsizes.xs,
+        ),
+        Icon(
+          Iconsax.verify5,
+          color: iconcolor,
+          size: Tsizes.iconxs,
+        ),
       ],
     );
   }

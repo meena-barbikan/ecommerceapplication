@@ -1,5 +1,6 @@
 import 'package:ecommerceapplication/features/shop/screens/home/home.dart';
 import 'package:ecommerceapplication/features/shop/screens/store/store.dart';
+import 'package:ecommerceapplication/features/shop/screens/whishlist/whishlist.dart';
 import 'package:ecommerceapplication/utils/constants/color.dart';
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +44,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeView(),
     const Store(),
-    Container(
-      color: Colors.blue,
-    ),
+    const Whishlist(),
     Container(color: Colors.greenAccent)
   ];
 }

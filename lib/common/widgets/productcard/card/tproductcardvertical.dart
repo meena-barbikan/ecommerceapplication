@@ -1,6 +1,7 @@
 import 'package:ecommerceapplication/common/styles/shadow.dart';
 import 'package:ecommerceapplication/common/widgets/icon/circularicon.dart';
 import 'package:ecommerceapplication/common/widgets/searchbar/searchbar.dart';
+import 'package:ecommerceapplication/utils/constants/enums.dart';
 import 'package:ecommerceapplication/utils/constants/size.dart';
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
@@ -76,35 +77,21 @@ class _TproductcardState extends State<Tproductcard> {
             const SizedBox(
               height: Tsizes.spacebtwitems / 2,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: Tsizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: Tsizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Tproducttitle(
+                  Tproducttitle(
                     text: "Green Nike Air Shoes",
                     smallsize: true,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: Tsizes.spacebtwitems / 2,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "Nike",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(
-                        width: Tsizes.sm,
-                      ),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: Tcolors.primaryColor,
-                        size: Tsizes.iconxs,
-                      ),
-                    ],
+                  TBrandtitlewithVerfication(
+                    title: "Nike",
+                    brandTextsizes: TextSizes.large,
                   ),
                 ],
               ),

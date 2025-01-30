@@ -8,6 +8,7 @@ import '../../../features/shop/screens/home/home.dart';
 import '../../../utils/constants/size.dart';
 import '../searchbar/searchbar.dart';
 
+// ignore: must_be_immutable
 class Tpromoslide extends StatelessWidget {
   List<String> banners;
   Tpromoslide({super.key, required this.banners});
@@ -60,7 +61,7 @@ class Tpromoslide extends StatelessWidget {
                   backgroundColor: controller.carouselindex.value == i
                       ? Tcolors.primaryColor
                       : Tcolors.grey,
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                 )
             ],
           ),

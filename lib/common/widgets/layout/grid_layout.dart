@@ -8,7 +8,7 @@ class GridLayoutview extends StatelessWidget {
   final Widget? Function(BuildContext, int) itemBuilder;
   const GridLayoutview(
       {super.key,
-      required this.mainAxisExtent,
+      this.mainAxisExtent = 288,
       required this.itemcount,
       required this.itemBuilder});
 

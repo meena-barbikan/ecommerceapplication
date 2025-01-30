@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerceapplication/common/widgets/appbar/appbar.dart';
 import 'package:ecommerceapplication/common/widgets/productcard/card/tproductcardvertical.dart';
 import 'package:ecommerceapplication/common/widgets/promo/promo.dart';
@@ -8,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../common/widgets/icon/circularicon.dart';
+import '../../../../common/widgets/images/thomecatgories.dart';
 import '../../../../common/widgets/layout/grid_layout.dart';
 import '../../../../common/widgets/searchbar/searchbar.dart';
 import '../../../../utils/constants/color.dart';
@@ -53,42 +54,20 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   actions: [
-                    Stack(
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Iconsax.shopping_bag,
-                              color: Tcolors.white,
-                            )),
-                        Positioned(
-                            right: 0,
-                            child: Container(
-                              width: 18,
-                              height: 18,
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(100)),
-                              child: Text(
-                                "2",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelLarge!
-                                    .apply(color: Tcolors.white),
-                                textAlign: TextAlign.center,
-                              ),
-                            )),
-                        // Badge(
-                        //     label: const Text("2"),
-                        //     backgroundColor: Tcolors.black,
-                        //     child: IconButton(
-                        //         onPressed: () {},
-                        //         icon: const Icon(
-                        //           Iconsax.shopping_bag,
-                        //           color: Tcolors.white,
-                        //         )))
-                      ],
-                    )
+                    TcardCounterIcon(
+                      text: "2",
+                      onpressed: () {},
+                      icon: Iconsax.shopping_bag,
+                    ),
+                    // Badge(
+                    //     label: const Text("2"),
+                    //     backgroundColor: Tcolors.black,
+                    //     child: IconButton(
+                    //         onPressed: () {},
+                    //         icon: const Icon(
+                    //           Iconsax.shopping_bag,
+                    //           color: Tcolors.white,
+                    //         )))
                   ],
                 ),
                 const SizedBox(
@@ -116,22 +95,7 @@ class _HomeViewState extends State<HomeView> {
                 const SizedBox(
                   height: Tsizes.spacebtwsections,
                 ),
-                SizedBox(
-                  height: 80,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 6,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Tverticaltext(
-                        image: 'assets/images/jerryimage.png',
-                        title: 'Shoes Category ',
-                        textcolor: Tcolors.white,
-                        onTap: () {},
-                      );
-                    },
-                  ),
-                )
+                const Thomecatgories(),
               ],
             )),
             // body
@@ -150,7 +114,7 @@ class _HomeViewState extends State<HomeView> {
             //   ),
             // ),
             Padding(
-              padding: EdgeInsets.all(Tsizes.defaultspace),
+              padding: const EdgeInsets.all(Tsizes.defaultspace),
               child: Tpromoslide(
                 banners: const [
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtNGD4AMEkmeuhBehw4c1m7B35CWOCewn17A&s",
@@ -162,9 +126,12 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: Tsizes.spacebtwsections,
             ),
-            Tsectionheading(
-              title: "Popular Products",
-              onpressed: () {},
+            Padding(
+              padding: const EdgeInsets.only(left: Tsizes.spacebtwitems),
+              child: Tsectionheading(
+                title: "Popular Products",
+                onpressed: () {},
+              ),
             ),
             const SizedBox(
               height: Tsizes.spacebtwitems,
@@ -172,7 +139,7 @@ class _HomeViewState extends State<HomeView> {
             GridLayoutview(
               mainAxisExtent: 288,
               itemcount: 4,
-              itemBuilder: (BuildContext, int) => Tproductcard(),
+              itemBuilder: (_, index) => const Tproductcard(),
             )
           ],
         ),
