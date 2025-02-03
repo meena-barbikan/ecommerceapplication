@@ -1,10 +1,12 @@
 import 'package:ecommerceapplication/common/styles/shadow.dart';
 import 'package:ecommerceapplication/common/widgets/icon/circularicon.dart';
 import 'package:ecommerceapplication/common/widgets/searchbar/searchbar.dart';
+import 'package:ecommerceapplication/features/shop/screens/product/product_details.dart';
 import 'package:ecommerceapplication/utils/constants/enums.dart';
 import 'package:ecommerceapplication/utils/constants/size.dart';
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/color.dart';
@@ -22,7 +24,7 @@ class _TproductcardState extends State<Tproductcard> {
   Widget build(BuildContext context) {
     final dark = Thelperfunctions.isdarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => ProductDetails()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -32,6 +34,7 @@ class _TproductcardState extends State<Tproductcard> {
             color: dark ? Tcolors.darergrey : Tcolors.white),
         child: Column(
           children: [
+            // thumbnail, whislistbutton, discount tag
             TRoundedContainer(
               height: 180,
               padding: const EdgeInsets.all(Tsizes.sm),

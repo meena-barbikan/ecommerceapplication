@@ -31,73 +31,77 @@ class _HomeViewState extends State<HomeView> {
         child: Column(
           children: [
             TprimaryCurved(
-                child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TAppbar(
-                  title: Column(
-                    children: [
-                      Text(
-                        "Good for Shopping",
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .apply(color: Tcolors.grey),
-                      ),
-                      Text(
-                        "Selvameena",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .apply(color: Tcolors.white),
-                      )
-                    ],
-                  ),
-                  actions: [
-                    TcardCounterIcon(
-                      text: "2",
-                      onpressed: () {},
-                      icon: Iconsax.shopping_bag,
+              child: Column(
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TAppbar(
+                    title: Column(
+                      children: [
+                        Text(
+                          "Good for Shopping",
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium!
+                              .apply(color: Tcolors.grey),
+                        ),
+                        Text(
+                          "Selvameena",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .apply(color: Tcolors.white),
+                        )
+                      ],
                     ),
-                    // Badge(
-                    //     label: const Text("2"),
-                    //     backgroundColor: Tcolors.black,
-                    //     child: IconButton(
-                    //         onPressed: () {},
-                    //         icon: const Icon(
-                    //           Iconsax.shopping_bag,
-                    //           color: Tcolors.white,
-                    //         )))
-                  ],
-                ),
-                const SizedBox(
-                  height: Tsizes.spacebtwsections,
-                ), //  search bar
-                const Searchbar(
-                  icon: (Iconsax.search_normal),
-                  text: "Search in Store",
-                ),
-                const SizedBox(
-                  height: Tsizes.spacebtwsections,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: Tsizes.defaultspace),
-                  child: Column(
-                    children: [
-                      sectionheading(
-                        title: "Popular Categories",
-                        buttontitle: "View all",
-                        showActionButton: false,
+                    actions: [
+                      TcardCounterIcon(
+                        text: "2",
+                        onpressed: () {},
+                        icon: Iconsax.shopping_bag,
                       ),
+                      // Badge(
+                      //     label: const Text("2"),
+                      //     backgroundColor: Tcolors.black,
+                      //     child: IconButton(
+                      //         onPressed: () {},
+                      //         icon: const Icon(
+                      //           Iconsax.shopping_bag,
+                      //           color: Tcolors.white,
+                      //         )))
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: Tsizes.spacebtwsections,
-                ),
-                const Thomecatgories(),
-              ],
-            )),
+                  const SizedBox(
+                    height: Tsizes.spacebtwsections,
+                  ), //  search bar
+                  const Searchbar(
+                    icon: (Iconsax.search_normal),
+                    text: "Search in Store",
+                  ),
+                  const SizedBox(
+                    height: Tsizes.spacebtwsections,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: Tsizes.defaultspace),
+                    child: Column(
+                      children: [
+                        sectionheading(
+                          title: "Popular Categories",
+                          buttontitle: "View all",
+                          showActionButton: false,
+                        ),
+                        SizedBox(
+                          height: Tsizes.spacebtwitems,
+                        ),
+                        Thomecatgories(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: Tsizes.spacebtwsections,
+                  ),
+                ],
+              ),
+            ),
             // body
             // Padding(
             //   padding: const EdgeInsets.all(Tsizes.defaultspace),
@@ -213,37 +217,46 @@ class TprimaryCurved extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: TcustomCurvedEdgets(),
+    return TcurvedWidget(
       child: Container(
         color: Tcolors.primaryColor,
         padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: 380,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: TcircularContainer(
-                  backgroundColor: Tcolors.textwhite.withOpacity(0.1),
-                ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: -150,
+              right: -250,
+              child: TcircularContainer(
+                backgroundColor: Tcolors.textwhite.withOpacity(0.1),
               ),
-              Positioned(
-                top: 100,
-                right: -300,
-                child: TcircularContainer(
-                  backgroundColor: Tcolors.textwhite.withOpacity(0.1),
-                ),
+            ),
+            Positioned(
+              top: 100,
+              right: -300,
+              child: TcircularContainer(
+                backgroundColor: Tcolors.textwhite.withOpacity(0.1),
               ),
-              // Positioned.fill(
-              //   child: child,
-              // ),
-              child
-            ],
-          ),
+            ),
+            // Positioned.fill(
+            //   child: child,
+            // ),
+            child
+          ],
         ),
       ),
+    );
+  }
+}
+
+class TcurvedWidget extends StatelessWidget {
+  final Widget child;
+  const TcurvedWidget({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipPath(
+      clipper: TcustomCurvedEdgets(),
+      child: child,
     );
   }
 }

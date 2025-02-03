@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:ecommerceapplication/common/widgets/layout/grid_layout.dart';
 import 'package:ecommerceapplication/common/widgets/productcard/card/tproductcardvertical.dart';
 import 'package:ecommerceapplication/common/widgets/tverticalext/tverticaltext.dart';
@@ -45,7 +46,8 @@ class Tcategorytab extends StatelessWidget {
                   height: Tsizes.spacebtwitems,
                 ),
                 GridLayoutview(
-                    itemcount: 4, itemBuilder: (_, index) => Tproductcard()),
+                    itemcount: 4,
+                    itemBuilder: (_, index) => const Tproductcard()),
                 const SizedBox(
                   height: Tsizes.spacebtwsections,
                 ),

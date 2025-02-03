@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import 'features/shop/screens/profile/account.dart';
+
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
 
@@ -45,6 +47,6 @@ class NavigationController extends GetxController {
     const HomeView(),
     const Store(),
     const Whishlist(),
-    Container(color: Colors.greenAccent)
+    const Account(),
   ];
 }

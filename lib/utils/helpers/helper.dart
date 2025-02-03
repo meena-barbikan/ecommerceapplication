@@ -22,6 +22,8 @@ class Thelperfunctions {
       return Colors.white;
     } else if (value == "Indigo") {
       return Colors.indigo;
+    } else if (value == "yellow") {
+      return Colors.yellow;
     } else {
       return null;
     }
