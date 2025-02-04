@@ -8,6 +8,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/list_tile/list_tile.dart';
 import '../../../../common/widgets/list_tile/settings_menu.dart';
 import '../../../../utils/constants/size.dart';
+import '../../../personalization/screens/address/address.dart';
 import '../home/home.dart';
 import 'profilescreen.dart';
 
@@ -64,7 +65,7 @@ class Account extends StatelessWidget {
                     title: 'My Address',
                     icon: Iconsax.safe_home,
                     subtitle: 'Set Shopping delivery address',
-                    ontap: () {},
+                    ontap: () => Get.to(() => const UseraddressScreen()),
                   ),
                   SettingsMenu(
                     title: 'My Card',
