@@ -2,8 +2,10 @@ import 'package:ecommerceapplication/common/widgets/appbar/appbar.dart';
 import 'package:ecommerceapplication/common/widgets/productcard/card/tproductcardvertical.dart';
 import 'package:ecommerceapplication/common/widgets/promo/promo.dart';
 import 'package:ecommerceapplication/common/widgets/tverticalext/tverticaltext.dart';
+import 'package:ecommerceapplication/features/shop/screens/allproducts/allproducts.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:iconsax/iconsax.dart';
 
@@ -13,6 +15,7 @@ import '../../../../common/widgets/layout/grid_layout.dart';
 import '../../../../common/widgets/searchbar/searchbar.dart';
 import '../../../../utils/constants/color.dart';
 import '../../../../utils/constants/size.dart';
+import '../card/cart.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -56,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                     actions: [
                       TcardCounterIcon(
                         text: "2",
-                        onpressed: () {},
+                        onpressed: () => Get.to(() => const CartScreen()),
                         icon: Iconsax.shopping_bag,
                       ),
                       // Badge(
@@ -102,21 +105,6 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            // body
-            // Padding(
-            //   padding: const EdgeInsets.all(Tsizes.defaultspace),
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(Tsizes.md)),
-            //     child: ClipRRect(
-            //       borderRadius: BorderRadius.circular(Tsizes.md),
-            //       child: const Image(
-            //           fit: BoxFit.fill,
-            //           image: NetworkImage(
-            //               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtNGD4AMEkmeuhBehw4c1m7B35CWOCewn17A&s")),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.all(Tsizes.defaultspace),
               child: Tpromoslide(
@@ -134,7 +122,7 @@ class _HomeViewState extends State<HomeView> {
               padding: const EdgeInsets.only(left: Tsizes.spacebtwitems),
               child: Tsectionheading(
                 title: "Popular Products",
-                onpressed: () {},
+                onpressed: () => Get.to(() => const Allproducts()),
               ),
             ),
             const SizedBox(

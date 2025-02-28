@@ -7,11 +7,13 @@ import 'package:ecommerceapplication/utils/constants/color.dart';
 import 'package:ecommerceapplication/utils/constants/size.dart';
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/appbar/Tcategorytab.dart';
 import '../../../../common/widgets/layout/grid_layout.dart';
 import '../../../../common/widgets/searchbar/searchbar.dart';
+import '../brand/allbrand.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
@@ -68,7 +70,8 @@ class Store extends StatelessWidget {
                           // feature brands
                           Tsectionheading(
                             title: "Feature Brands",
-                            onpressed: () {},
+                            onpressed: () =>
+                                Get.to(() => const AllbrandScreen()),
                           ),
                           const SizedBox(
                             height: Tsizes.spacebtwitems / 1.5,

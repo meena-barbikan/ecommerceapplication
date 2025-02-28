@@ -1,5 +1,6 @@
 import 'package:ecommerceapplication/common/widgets/appbar/appbar.dart';
 import 'package:ecommerceapplication/common/widgets/tverticalext/tverticaltext.dart';
+import 'package:ecommerceapplication/features/shop/screens/order/order.dart';
 import 'package:ecommerceapplication/utils/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -77,7 +78,7 @@ class Account extends StatelessWidget {
                     title: 'My Orders',
                     icon: Iconsax.bag_tick,
                     subtitle: 'In-progress and Completed Orders',
-                    ontap: () {},
+                    ontap: () => Get.to(() => const OrderScreen()),
                   ),
                   SettingsMenu(
                     title: 'Bank Account',

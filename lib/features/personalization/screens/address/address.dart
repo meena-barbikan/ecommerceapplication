@@ -1,6 +1,5 @@
 import 'package:ecommerceapplication/common/widgets/appbar/appbar.dart';
 import 'package:ecommerceapplication/common/widgets/searchbar/searchbar.dart';
-import 'package:ecommerceapplication/features/personalization/screens/address/address_new_screen.dart';
 import 'package:ecommerceapplication/utils/constants/color.dart';
 import 'package:ecommerceapplication/utils/constants/size.dart';
 import 'package:ecommerceapplication/utils/helpers/helper.dart';
@@ -16,7 +15,7 @@ class UseraddressScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.to(
-          () => const AddressNewScreen(),
+          () => const AddnewScreen(),
         ),
         backgroundColor: Tcolors.primaryColor,
         child: const Icon(
@@ -37,10 +36,10 @@ class UseraddressScreen extends StatelessWidget {
           child: Column(
             children: [
               TsingleAddress(
-                selectedaddress: true,
+                selectedaddress: false,
               ),
               TsingleAddress(
-                selectedaddress: false,
+                selectedaddress: true,
               ),
             ],
           ),
@@ -82,19 +81,136 @@ class TsingleAddress extends StatelessWidget {
                     : null),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "823556 Timmy Coves, South Liana, Maine, 87665, USA",
-                maxLines: 2,
+                "John Doe",
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(
                 height: Tsizes.sm / 2,
               ),
+              const Text(
+                "(+91) 12345 67890",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(
+                height: Tsizes.sm / 2,
+              ),
+              const Text(
+                "823556 Timmy Coves, South Liana, Maine, 87665, USA",
+                softWrap: true,
+              ),
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class AddnewScreen extends StatefulWidget {
+  const AddnewScreen({super.key});
+
+  @override
+  State<AddnewScreen> createState() => _AddnewScreenState();
+}
+
+class _AddnewScreenState extends State<AddnewScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: TAppbar(
+        showBackArrow: true,
+        title: Text("Add new Address"),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(Tsizes.defaultspace),
+          child: Form(
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Iconsax.user), labelText: "Name"),
+                ),
+                const SizedBox(
+                  height: Tsizes.spacebtwinputfields,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Iconsax.mobile),
+                      labelText: "Phone Number"),
+                ),
+                const SizedBox(
+                  height: Tsizes.spacebtwinputfields,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                            prefixIcon: Icon(Iconsax.building_31),
+                            labelText: " Street"),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: Tsizes.spacebtwinputfields,
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                            prefixIcon: Icon(Iconsax.code),
+                            labelText: "Postal Code"),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: Tsizes.spacebtwinputfields,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                            prefixIcon: Icon(Iconsax.building),
+                            labelText: " City"),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: Tsizes.spacebtwinputfields,
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                            prefixIcon: Icon(Iconsax.activity),
+                            labelText: "State"),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: Tsizes.spacebtwinputfields,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                      prefixIcon: Icon(Iconsax.global), labelText: "Country"),
+                ),
+                const SizedBox(
+                  height: Tsizes.spacebtwinputfields,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: () {}, child: Text("Save")),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
